@@ -36,11 +36,12 @@ namespace TheYodaAI_App
         }
         public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
         {
-            mauiAppBuilder.Services.AddSingleton<LoadsheddingQuestionViewModel>();
-            mauiAppBuilder.Services.AddSingleton<LoadsheddingAnswerViewModel>();
-
-            // More view-models registered here.
-
+           // Once views is confirmed...
+            return mauiAppBuilder;
+        }
+        public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
+        {
+            // Should i have a question and answer page?
             return mauiAppBuilder;
         }
     }
