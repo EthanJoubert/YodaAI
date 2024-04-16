@@ -18,7 +18,7 @@
                         <StackLayout>
                             <Label Text="Choose what to ask Yoda, a Joke or Fact!" HorizontalOptions="Center" FontSize="20" Margin="0, 0, 0, 15"/>
                             <HorizontalStackLayout Margin="10, 20, 10, 0">
-                                <Button Text="Joke" WidthRequest="250" Margin="0,0,8,0" HeightRequest="70" Clicked="Button_Clicked"/>
+                                <Button Text="Joke" WidthRequest="250" Margin="0,0,8,0" HeightRequest="70"/>
                                 <Button Text="Fact" WidthRequest="250"/>
                             </HorizontalStackLayout>
                         </StackLayout>

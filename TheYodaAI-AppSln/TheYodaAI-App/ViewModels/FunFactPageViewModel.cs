@@ -10,9 +10,5 @@ namespace TheYodaAI_App.ViewModels
     public class FunFactPageViewModel : BaseViewModel
     {
 
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            
-        }
     }
 }
