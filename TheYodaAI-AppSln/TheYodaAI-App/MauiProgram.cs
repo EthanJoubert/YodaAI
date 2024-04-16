@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using TheYodaAI_App.Configuration;
+using TheYodaAI_App.Views;
 
 namespace TheYodaAI_App
 {
@@ -41,6 +42,7 @@ namespace TheYodaAI_App
         }
         public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
         {
+            mauiAppBuilder.Services.AddSingleton<FunFactsPage>();
             // Should i have a question and answer page?
             return mauiAppBuilder;
         }
