@@ -4,9 +4,27 @@
              x:Class="TheYodaAI_App.Views.FunFactsPage"
              Title="FunFactsPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to Your YODA AI"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        
+        <!-- Yoda Ai App UI -->
+        <StackLayout Margin="20, 50, 20, 0">
+            <Frame BorderColor="black" Margin="50" HeightRequest="850">
+                <StackLayout>
+                    <Label Text="Fun Facts with Yoda!" HorizontalOptions="Center" FontSize="40" FontAttributes="Bold" Margin="10"/>
+                    <Frame BorderColor="Black" Margin="20" HeightRequest="400">
+                        <!-- Yoda Answer/Response here -->
+                        <Label x:Name="yoda" Text="Yoda answer here!" HorizontalOptions="Center" Margin="50"/>
+                    </Frame>
+                    <Frame Margin="20, 0, 20, 0" BorderColor="Black" HeightRequest="200">
+                        <StackLayout>
+                            <Label Text="Choose what to ask Yoda, a Joke or Fact!" HorizontalOptions="Center" FontSize="20" Margin="0, 0, 0, 15"/>
+                            <HorizontalStackLayout Margin="10, 20, 10, 0">
+                                <Button Text="Joke" WidthRequest="250" Margin="0,0,8,0" HeightRequest="70" Clicked="Button_Clicked"/>
+                                <Button Text="Fact" WidthRequest="250"/>
+                            </HorizontalStackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
