@@ -5,7 +5,7 @@
              Title="FunFactsPage">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Welcome to Your YODA AI"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>
