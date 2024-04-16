@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using TheYodaAI_App.Configuration;
+using TheYodaAI_App.ViewModels;
 using TheYodaAI_App.Views;
 
 namespace TheYodaAI_App
@@ -37,13 +38,12 @@ namespace TheYodaAI_App
         }
         public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
         {
-           // Once views is confirmed...
+            mauiAppBuilder.Services.AddSingleton<FunFactPageViewModel>();
             return mauiAppBuilder;
         }
         public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
         {
             mauiAppBuilder.Services.AddSingleton<FunFactsPage>();
-            // Should i have a question and answer page?
             return mauiAppBuilder;
         }
     }
