@@ -17,9 +17,9 @@
                     <Frame Margin="10, 0, 10, 0" BorderColor="Black" HeightRequest="200">
                         <StackLayout>
                             <Label Text="Choose what to ask Yoda, a Joke or Fact!" HorizontalOptions="Center" FontSize="15" Margin="0, 0, 0, 15"/>
-                            <HorizontalStackLayout Margin="10, 20, 10, 0">
+                            <HorizontalStackLayout Margin="10, 20, 10, 0" HorizontalOptions="Center">
                                 <Button Text="Joke" WidthRequest="120" Margin="0,0,8,0" HeightRequest="70"/>
-                                <Button Text="Fact" WidthRequest="120"/>
+                                <Button Text="Fact" WidthRequest="120" />
                             </HorizontalStackLayout>
                         </StackLayout>
                     </Frame>

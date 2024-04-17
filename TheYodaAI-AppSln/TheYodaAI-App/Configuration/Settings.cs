@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TheYodaAI_App.Configuration
 {
-    internal class ConstantSettings : ISettings
+    public class ConstantSettings : ISettings
     {
         public string AzureOpenAiEndPoint { get => "https://loadsheddinglpopenai.openai.azure.com/"; }
         public string AzureOpenAiKey { get => "6a6655adb5f54164afa3de59fd4dae65"; }
