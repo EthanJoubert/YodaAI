@@ -41,11 +41,11 @@ namespace TheYodaAI_App.Services
 
             var client = new OpenAIClient(new Uri(_settings.AzureOpenAiEndPoint), new AzureKeyCredential(_settings.AzureOpenAiKey));
             string deploymentName = "gpt35turbo16";
-            string searchIndex = "index";
+            //string searchIndex = "index";
 
             var chatCompletionsOptions = new ChatCompletionsOptions()
             {
-
+                
 
             };
             foreach (var message in messages)

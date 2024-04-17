@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TheYodaAI_App.Views.FunFactsPage"
+             xmlns:models="clr-namespace:TheYodaAI_App.Models"
+             xmlns:viewmodel="clr-namespace:TheYodaAI_App.ViewModels"
              Title="FunFactsPage">
     <VerticalStackLayout>
         
@@ -15,8 +17,8 @@
                         <Label x:Name="yoda" Text="Yoda answer here!" HorizontalOptions="Center" Margin="20"/>
                     </Frame>
                     <Frame Margin="10, 0, 10, 0" BorderColor="Black" HeightRequest="200">
-                        <StackLayout>
-                            <Label Text="Choose what to ask Yoda, a Joke or Fact!" HorizontalOptions="Center" FontSize="15" Margin="0, 0, 0, 15"/>
+                        <StackLayout x:DataType="models:YodaMessage">
+                            <Label Text="{Binding MessageBody}" HorizontalOptions="Center" FontSize="15" Margin="0, 0, 0, 15"/>
                             <HorizontalStackLayout Margin="10, 20, 10, 0" HorizontalOptions="Center">
                                 <Button Text="Joke" WidthRequest="120" Margin="0,0,8,0" HeightRequest="70"/>
                                 <Button Text="Fact" WidthRequest="120" />
