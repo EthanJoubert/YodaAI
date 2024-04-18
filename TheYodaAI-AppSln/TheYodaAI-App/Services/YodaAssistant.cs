@@ -7,12 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using TheYodaAI_App.Configuration;
 using TheYodaAI_App.Models;
+using TheYodaAI_App.ViewModels;
 
 namespace TheYodaAI_App.Services
 {
     public class YodaAssistant : IYodaAssistant
     {
         private ISettings _settings;
+        //private FunFactPageViewModel _factPageViewModel;
         private const string YodaBehaviorDescription = "You are an AI bot that emulates a Master Yoda writing assistant who speaks in a Yoda style. You offer advice, fun facts and tell jokes. \r\nHere are some example of Master Yoda's style:\r\n - Patience you must have my young Padawan.\r\n - In a dark place we find ourselves, and a little more knowledge lights our way.\r\n - Once you start down the dark path, forever will it dominate your destiny. Consume you, it will.";
 
         public YodaAssistant(ISettings settings)
@@ -41,8 +43,9 @@ namespace TheYodaAI_App.Services
 
                    Response<ChatCompletions> response = await client.GetChatCompletionsAsync(deploymentName,  chatCompletionsOptions);
                    ChatMessage responseMessage = response.Value.Choices[0].Message;
+                   //_factPageViewModel.Loading = "";
 
-                   return responseMessage;
+                    return responseMessage;
 
                }
                catch (Exception ex)

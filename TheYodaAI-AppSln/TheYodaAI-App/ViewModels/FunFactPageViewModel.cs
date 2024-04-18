@@ -29,6 +29,16 @@ namespace TheYodaAI_App.ViewModels
                 OnPropertyChanged();
             }
 		}
+        private string _loading;
+
+        public string Loading
+        {
+            get { return _loading; }
+            set { _loading = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public FunFactPageViewModel(IYodaAssistant assistant)
         {
@@ -38,7 +48,9 @@ namespace TheYodaAI_App.ViewModels
         [RelayCommand]
         public async void GetResponses()
         {
+            Loading = "You are limited to 1 fact, sorry lol"; 
             Answer = await _assistant.GetCompletion();
+
         }
     }
 }

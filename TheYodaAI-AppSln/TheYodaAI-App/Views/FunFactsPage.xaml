@@ -18,10 +18,10 @@
                     </Frame>
                     <Frame Margin="10, 0, 10, 0" BorderColor="Black" HeightRequest="200">
                         <StackLayout>
-                            <Label Text="Choose what to ask Yoda, Fun Fact or Joke" HorizontalOptions="Center" FontSize="15" Margin="0, 0, 0, 15"/>
+                            <Label Text="How can may i assist you today!?" HorizontalOptions="Center" FontSize="15" Margin="0, 0, 0, 15"/>
+                            <Label Text="{Binding Loading}" HorizontalOptions="Center" Margin="10"/>
                             <HorizontalStackLayout Margin="10, 20, 10, 0" HorizontalOptions="Center">
-                                <Button Text="Joke" WidthRequest="120" Margin="0,0,8,0" HeightRequest="70"/>
-                                <Button Text="Fact" WidthRequest="120" Command="{Binding GetResponsesCommand}"/>
+                                <Button Text="Fun Fact Please!" WidthRequest="200" Command="{Binding GetResponsesCommand}"/>
                             </HorizontalStackLayout>
                         </StackLayout>
                     </Frame>
