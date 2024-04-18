@@ -10,6 +10,6 @@ namespace TheYodaAI_App.Services
 {
     public interface IYodaAssistant
     {
-        ChatResponseMessage GetCompletion(IList<YodaMessage> chatInboundHistory, YodaMessage userMessage);
+        ChatResponseMessage GetCompletion(YodaMessage userMessage);
     }
 }

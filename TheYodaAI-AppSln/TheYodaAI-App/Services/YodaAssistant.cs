@@ -21,16 +21,18 @@ namespace TheYodaAI_App.Services
         }
 
         // Does Code from OpenAi portal go here??? 
-        public ChatResponseMessage GetCompletion(IList<YodaMessage> chatInboundHistory, YodaMessage userMessage)
+        public ChatResponseMessage GetCompletion(YodaMessage userMessage)
         {
             var client = new OpenAIClient(new Uri(_settings.AzureOpenAiEndPoint), new AzureKeyCredential(_settings.AzureOpenAiKey));
             string deploymentName = "gpt35turbo16";
-            //string searchIndex = "index";
 
             var chatCompletionsOptions = new ChatCompletionsOptions()
             {
-                
-
+                Messages =
+                {
+                    new ChatRequestSystemMessage(YodaBehaviorDescription),
+                    new ChatRequestUserMessage("Give me one fun fact")
+                }
             };
             Response<ChatCompletions> response = client.GetChatCompletions(chatCompletionsOptions);
             ChatResponseMessage responseMessage = response.Value.Choices[0].Message;
