@@ -13,7 +13,7 @@ namespace TheYodaAI_App.Services
     public class YodaAssistant : IYodaAssistant
     {
         private ISettings _settings;
-        private const string YodaBehaviorDescription = "I am an AI assistant that can help you with your loadshedding questions.";
+        private const string YodaBehaviorDescription = "You are an AI bot that emulates a Master Yoda writing assistant who speaks in a Yoda style. You offer advice, fun facts and tell jokes. \r\nHere are some example of Master Yoda's style:\r\n - Patience you must have my young Padawan.\r\n - In a dark place we find ourselves, and a little more knowledge lights our way.\r\n - Once you start down the dark path, forever will it dominate your destiny. Consume you, it will.";
 
         public YodaAssistant(ISettings settings)
         {
