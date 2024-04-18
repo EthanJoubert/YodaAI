@@ -20,6 +20,7 @@ namespace TheYodaAI_App.Services
             _settings = settings;
         }
 
+        // Do we Need Build Context???
         private IList<ChatRequestMessage> BuildChatContext(IList<YodaMessage> chatInboundHistory, YodaMessage userMessage)
         {
             var chatContext = new List<ChatRequestMessage>();
@@ -35,6 +36,7 @@ namespace TheYodaAI_App.Services
 
         }
 
+        // Does Code from OpenAi portal go here??? 
         public ChatResponseMessage GetCompletion(IList<YodaMessage> chatInboundHistory, YodaMessage userMessage)
         {
             var messages = BuildChatContext(chatInboundHistory, userMessage);
