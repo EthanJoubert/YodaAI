@@ -21,23 +21,73 @@ namespace TheYodaAI_App.Services
         }
 
         // Does Code from OpenAi portal go here??? 
-        public ChatResponseMessage GetCompletion(YodaMessage userMessage)
-        {
-            var client = new OpenAIClient(new Uri(_settings.AzureOpenAiEndPoint), new AzureKeyCredential(_settings.AzureOpenAiKey));
-            string deploymentName = "gpt35turbo16";
+          public async Task<ChatMessage> GetCompletion()
+           {
 
-            var chatCompletionsOptions = new ChatCompletionsOptions()
-            {
-                Messages =
-                {
-                    new ChatRequestSystemMessage(YodaBehaviorDescription),
-                    new ChatRequestUserMessage("Give me one fun fact")
-                }
-            };
-            Response<ChatCompletions> response = client.GetChatCompletions(chatCompletionsOptions);
-            ChatResponseMessage responseMessage = response.Value.Choices[0].Message;
+               try
+               {
+                   var client = new OpenAIClient(new Uri(_settings.AzureOpenAiEndPoint), new AzureKeyCredential(_settings.AzureOpenAiKey));
+                   string deploymentName = "gpt35turbo16";
+                   string fact = "Give a fun fact";
 
-            return responseMessage;
-        }
+                   var chatCompletionsOptions = new ChatCompletionsOptions()
+                   {
+                       Messages =
+                       {
+                           new ChatMessage(ChatRole.System,YodaBehaviorDescription),
+                           new ChatMessage(ChatRole.User,fact)
+                       }
+                   };
+
+                   Response<ChatCompletions> response = await client.GetChatCompletionsAsync(deploymentName,  chatCompletionsOptions);
+                   ChatMessage responseMessage = response.Value.Choices[0].Message;
+
+                   return responseMessage;
+
+               }
+               catch (Exception ex)
+               {
+
+               }
+
+               return null;
+           }
+
+        // Does Code from OpenAi portal go here??? 
+        /*   public async Task<ChatResponseMessage> GetCompletion()
+           {
+
+               try
+               {
+
+
+
+                   var client = new OpenAIClient(new Uri(_settings.AzureOpenAiEndPoint), new AzureKeyCredential(_settings.AzureOpenAiKey));
+                   string deploymentName = "gpt35turbo16";
+                   string fact = "Give a fun fact";
+
+                   var chatCompletionsOptions = new ChatCompletionsOptions()
+                   {
+                       Messages =
+                   {
+                       new ChatRequestSystemMessage(YodaBehaviorDescription),
+                       new ChatRequestUserMessage(fact)
+                   },
+                       DeploymentName = deploymentName
+                   };
+
+                   Response<ChatCompletions> response = await client.GetChatCompletionsAsync(chatCompletionsOptions);
+                   ChatResponseMessage responseMessage = response.Value.Choices[0].Message;
+
+                   return responseMessage;
+
+               }
+               catch (Exception ex)
+               {
+
+               }
+
+               return null;
+           }*/
     }
 }

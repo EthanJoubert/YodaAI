@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using TheYodaAI_App.Configuration;
+using TheYodaAI_App.Services;
 using TheYodaAI_App.ViewModels;
 using TheYodaAI_App.Views;
 
@@ -33,6 +34,9 @@ namespace TheYodaAI_App
         public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
         {
             // AI Assistant??
+
+            mauiAppBuilder.Services.AddTransient<IYodaAssistant, YodaAssistant>();
+
             mauiAppBuilder.Services.AddTransient<ISettings, ConstantSettings>();
             return mauiAppBuilder;
         }

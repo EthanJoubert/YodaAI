@@ -1,42 +1,44 @@
-﻿using System;
+﻿//using Android.Credentials;
+using Azure;
+using Azure.AI.OpenAI;
+using CommunityToolkit.Mvvm.Input;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using TheYodaAI_App.Models;
 using TheYodaAI_App.Services;
 using TheYodaAI_App.Views;
 
 namespace TheYodaAI_App.ViewModels
 {
-    public class FunFactPageViewModel : BaseViewModel
+    public partial class  FunFactPageViewModel : BaseViewModel
     {
         private IYodaAssistant _assistant;
 
-        private ObservableCollection<YodaMessage> _chatHistory;
+		private ChatMessage _answer;
 
-        public ObservableCollection<YodaMessage> ChatHistory
-        {
-            get { return _chatHistory; }
-            set
-            {
-                _chatHistory = value;
+		public ChatMessage Answer
+		{
+			get { return _answer; }
+			set { _answer = value;
 
                 OnPropertyChanged();
             }
+		}
+
+        public FunFactPageViewModel(IYodaAssistant assistant)
+        {
+            _assistant = assistant;
         }
 
-        private string _currentQuestion;
-        public string CurrentQuestion
+        [RelayCommand]
+        public async void GetResponses()
         {
-            get { return _currentQuestion; }
-            set
-            {
-                _currentQuestion = value;
-
-                OnPropertyChanged();
-            }
+            Answer = await _assistant.GetCompletion();
         }
     }
 }

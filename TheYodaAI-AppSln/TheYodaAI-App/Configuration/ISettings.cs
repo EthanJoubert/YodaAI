@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TheYodaAI_App.Configuration
 {
-    public class ISettings
+    public interface ISettings
     {
         public string AzureOpenAiEndPoint { get; }
         public string AzureOpenAiKey { get; }

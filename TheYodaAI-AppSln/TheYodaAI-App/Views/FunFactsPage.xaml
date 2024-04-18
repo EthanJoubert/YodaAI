@@ -12,16 +12,16 @@
             <Frame BorderColor="black" Margin="0" HeightRequest="650">
                 <StackLayout>
                     <Label Text="Fun Facts with Yoda!" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold" Margin="10"/>
-                    <Frame BorderColor="Black" Margin="10" HeightRequest="300">
+                    <Frame BorderColor="Black" Margin="10" HeightRequest="300" x:DataType="viewmodel:FunFactPageViewModel">
                         <!-- Yoda Answer/Response here -->
-                        <Label x:Name="yoda" Text="Yoda answer here!" HorizontalOptions="Center" Margin="20"/>
+                        <Label x:Name="yoda" Text="{Binding Answer.Content}" HorizontalOptions="Center" Margin="20"/>
                     </Frame>
                     <Frame Margin="10, 0, 10, 0" BorderColor="Black" HeightRequest="200">
-                        <StackLayout x:DataType="models:YodaMessage">
+                        <StackLayout>
                             <Label Text="Choose what to ask Yoda, Fun Fact or Joke" HorizontalOptions="Center" FontSize="15" Margin="0, 0, 0, 15"/>
                             <HorizontalStackLayout Margin="10, 20, 10, 0" HorizontalOptions="Center">
                                 <Button Text="Joke" WidthRequest="120" Margin="0,0,8,0" HeightRequest="70"/>
-                                <Button Text="Fact" WidthRequest="120" />
+                                <Button Text="Fact" WidthRequest="120" Command="{Binding GetResponsesCommand}"/>
                             </HorizontalStackLayout>
                         </StackLayout>
                     </Frame>
